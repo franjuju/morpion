@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Websockets
 
-## Available Scripts
+## Agenda
 
-In the project directory, you can run:
+1. What are Websockets
+2. Uses
+3. Look at the Spec (on MDN)
+4. Websockets on the Server
+4. Demo
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## What are Websockets
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Websocket are a fully-duplex message protocol that allows both the
+client/server to have a two connection that remains open.
 
-### `npm test`
+It allows application developers to *realtime* communicate with the
+server and to receive updates from the server. This is different from
+**HTTP** since HTTP  request only go from client -> server.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Websocket Users
 
-### `npm run build`
+We sockets can and should be used in applications that require
+*realtime* communication. It uses include:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Chat apps
+* Collaborative Text Editors
+* Notifications
+* Financial applications (example: stock tickers)
+* Multiplayer
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Apps that only deal with submitting resources and then retrieving them
+(the majority of apps) will have better performance without websockets
+so choose carefully whether or not to use them.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Websocket Spec
 
-### `npm run eject`
+The official spec is located
+on [MDN](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The Websocket API is really small a simple. For the most part you set
+up an event handler on *message* and you use either the *send()*
+command or the *close()* command.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Servers on the other hand don't have builtin WebSocket support. A
+great library to add support for *node*
+is [WS](https://github.com/websockets/ws)!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## DEMO
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+For the demo we created a tic tac toe game that allows two players to
+play against each other. You can find the code at (https://github.com/rob0t7/websocket-tic-tac-toe)
